@@ -1,0 +1,79 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content="Jekyll {{ jekyll.version }}" />
+<meta name="theme-color" content="#fafaf8" id="theme-color-meta" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+<!-- Styles -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+
+<!-- SEO (jekyll-seo-tag generates title, meta desc, OG, Twitter card, canonical) -->
+{% seo %}
+
+<!-- RSS Feed discovery -->
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}" />
+
+<!-- JSON-LD: Blog on homepage -->
+{% if page.url == '/' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "{{ site.title | escape }}",
+  "description": "{{ site.description | escape }}",
+  "url": "{{ site.url }}",
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | escape }}",
+    "jobTitle": "{{ site.author.title | escape }}",
+    "url": "{{ site.url }}/about",
+    "sameAs": [
+      "https://github.com/{{ site.author.github }}",
+      "https://twitter.com/{{ site.author.twitter }}",
+      "https://linkedin.com/in/{{ site.author.linkedin }}"
+    ]
+  }
+}
+</script>
+{% endif %}
+
+<!-- JSON-LD: BlogPosting on post pages -->
+{% if page.layout == 'post' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "description": "{{ page.description | default: page.excerpt | strip_html | strip_newlines | escape }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "url": "{{ page.url | absolute_url }}",
+  "inLanguage": "en-US",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name | escape }}",
+    "url": "{{ site.url }}/about"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name | escape }}"
+  },
+  {% if page.image %}
+  "image": "{{ page.image | absolute_url }}",
+  {% endif %}
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}" },
+      { "@type": "ListItem", "position": 2, "name": "{{ page.category }}", "item": "{{ site.url }}/{{ page.category | slugify }}" },
+      { "@type": "ListItem", "position": 3, "name": "{{ page.title | escape }}", "item": "{{ page.url | absolute_url }}" }
+    ]
+  }
+}
+</script>
+{% endif %}

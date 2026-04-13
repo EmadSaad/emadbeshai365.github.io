@@ -1,0 +1,26 @@
+<header class="masthead" role="banner">
+  <div class="masthead-top">
+    <a href="{{ '/' | relative_url }}" class="site-title" aria-label="{{ site.title }} — Home">
+      {{ site.author.name }}<span> ·</span> Engineering
+    </a>
+    <div class="masthead-controls">
+      <div class="search-wrap">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="9" cy="9" r="6"/><path d="M15 15l3 3"/>
+        </svg>
+        <input type="search" id="search" placeholder="Search posts…" aria-label="Search posts" autocomplete="off" />
+      </div>
+      <button class="ctl" id="dark-btn" aria-label="Switch to dark mode" aria-pressed="false">dark</button>
+      <a href="{{ '/feed.xml' | relative_url }}" class="ctl" aria-label="RSS Feed" rel="noopener">rss</a>
+    </div>
+  </div>
+  <nav class="masthead-nav" aria-label="Primary navigation">
+    <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active" aria-current="page"{% endif %}>All Posts</a>
+    <a href="{{ '/system-design/' | relative_url }}" {% if page.category == 'System Design' %}class="active"{% endif %}>System Design</a>
+    <a href="{{ '/backend/' | relative_url }}" {% if page.category == 'Backend' %}class="active"{% endif %}>Backend</a>
+    <a href="{{ '/cloud-devops/' | relative_url }}" {% if page.category == 'Cloud & DevOps' %}class="active"{% endif %}>Cloud &amp; DevOps</a>
+    <a href="{{ '/databases/' | relative_url }}" {% if page.category == 'Databases' %}class="active"{% endif %}>Databases</a>
+    <a href="{{ '/algorithms/' | relative_url }}" {% if page.category == 'Algorithms' %}class="active"{% endif %}>Algorithms</a>
+    <a href="{{ '/about/' | relative_url }}" {% if page.url == '/about/' %}class="active"{% endif %}>About</a>
+  </nav>
+</header>

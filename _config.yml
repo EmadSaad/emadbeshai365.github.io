@@ -1,0 +1,80 @@
+title: "Emad Beshai · Engineering"
+description: >-
+  A technical blog on software architecture, system design, and engineering craft.
+  Practical depth on backend, cloud, and distributed systems.
+url: "https://emadbeshai365.github.io"
+baseurl: ""
+
+author:
+  name: "Emad Beshai"
+  title: "Software Engineer"
+  bio: "Building scalable systems and sharing the hard-won lessons. Focused on distributed systems and backend architecture."
+  github: "emadbeshai365"
+  linkedin: "emadbeshai"
+  twitter: "emadbeshai"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Feed config
+feed:
+  title: "Emad Beshai · Engineering"
+  path: feed.xml
+
+# SEO defaults
+twitter:
+  username: emadbeshai
+  card: summary_large_image
+
+social:
+  name: Emad Beshai
+  links:
+    - https://github.com/emadbeshai365
+    - https://linkedin.com/in/emadbeshai
+    - https://twitter.com/emadbeshai
+
+google_analytics: # add UA-XXXXXXX or G-XXXXXXX here when ready
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      comments: true
+      author: "Emad Beshai"
+  - scope:
+      path: "pages"
+      type: "pages"
+    values:
+      layout: page
+
+# Exclude from build
+exclude:
+  - PLAN.md
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/

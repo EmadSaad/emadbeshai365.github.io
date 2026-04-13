@@ -1,0 +1,23 @@
+- name: "System Design"
+  slug: "system-design"
+  description: "Architecture trade-offs, scalability patterns, distributed systems design."
+
+- name: "Backend"
+  slug: "backend"
+  description: "Service design, APIs, event-driven systems, backend engineering."
+
+- name: "Databases"
+  slug: "databases"
+  description: "PostgreSQL internals, query optimisation, schema design, migrations."
+
+- name: "Cloud & DevOps"
+  slug: "cloud-devops"
+  description: "Deployment strategies, Kubernetes, observability, reliability."
+
+- name: "Algorithms"
+  slug: "algorithms"
+  description: "Practical algorithm implementations with real-world context."
+
+- name: "API Design"
+  slug: "api-design"
+  description: "API versioning, contracts, REST, gRPC, developer experience."

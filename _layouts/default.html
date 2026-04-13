@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  {% include head.html %}
+</head>
+<body>
+  <div id="rbar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress"></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <button id="back-top" aria-label="Back to top" title="Back to top">↑</button>
+
+  {% include masthead.html %}
+
+  {{ content }}
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{% if page.comments %}
+<div id="giscus-container" style="margin-top:3rem; padding-top:2rem; border-top:1px solid var(--rule);">
+  <p class="aside-head" style="margin-bottom:1rem;">Discussion</p>
+  <script src="https://giscus.app/client.js"
+    data-repo="{{ site.author.github }}/{{ site.author.github }}.github.io"
+    data-repo-id=""
+    data-category="Blog Comments"
+    data-category-id=""
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <!-- After enabling GitHub Discussions, replace data-repo-id and data-category-id
+       with values from https://giscus.app/  -->
+</div>
+{% endif %}

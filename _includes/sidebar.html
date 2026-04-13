@@ -1,0 +1,70 @@
+<aside class="aside" aria-label="Sidebar">
+
+  <!-- Author block -->
+  <div class="aside-block" style="margin-top:2rem">
+    <p class="aside-head">Author</p>
+    <p class="author-name">{{ site.author.name }}</p>
+    <p class="author-role">{{ site.author.title }}</p>
+    <p class="author-bio">{{ site.author.bio }}</p>
+    <nav class="author-links" aria-label="Author social links">
+      <a href="https://github.com/{{ site.author.github }}" class="alink" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://linkedin.com/in/{{ site.author.linkedin }}" class="alink" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://twitter.com/{{ site.author.twitter }}" class="alink" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+    </nav>
+  </div>
+
+  <!-- Popular This Month — IMP #8 -->
+  <div class="aside-block">
+    <p class="aside-head">Popular This Month</p>
+    <ul class="popular-list" aria-label="Popular posts">
+      {% assign popular = site.posts | where_exp: "p", "p.featured == true" | limit: 1 %}
+      {% assign recent  = site.posts | limit: 3 %}
+      {% for post in recent %}
+      <li class="popular-item">
+        <span class="pop-rank" aria-hidden="true">0{{ forloop.index }}</span>
+        <div>
+          <a href="{{ post.url | relative_url }}" class="pop-title">{{ post.title }}</a>
+          <p class="pop-meta">{{ post.read_time }} read &nbsp;·&nbsp; {{ post.category }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Topics -->
+  <div class="aside-block">
+    <p class="aside-head" id="topics-heading">Topics</p>
+    <div class="topic-list" role="list" aria-labelledby="topics-heading">
+      {% assign categories = site.posts | map: "category" | uniq | sort %}
+      {% for cat in categories %}
+        {% assign cat_count = site.posts | where: "category", cat | size %}
+        <div class="topic-row" role="listitem" tabindex="0" aria-pressed="false" aria-label="Filter by {{ cat }}">
+          {{ cat }} <span class="topic-ct">{{ cat_count }}</span>
+        </div>
+      {% endfor %}
+    </div>
+    <button id="clear-filter" aria-label="Clear topic filter">✕ Clear filter</button>
+  </div>
+
+  <!-- Code snippet from latest post -->
+  <div class="aside-block">
+    <p class="aside-head">From the latest post</p>
+    <div class="code-box">
+      <div class="code-top">
+        <span class="code-fname">{{ site.posts.first.code_filename | default: "snippet.py" }}</span>
+      </div>
+      <pre aria-label="Code sample from latest post"><code>{{ site.posts.first.code_snippet | default: "# No snippet yet\n# Write your first post!" }}</code></pre>
+    </div>
+  </div>
+
+  <!-- Newsletter -->
+  <div class="aside-block">
+    <p class="aside-head">Newsletter</p>
+    <p class="nl-desc">New articles every two weeks. Engineering depth, no noise.</p>
+    <form onsubmit="handleSub(event)" aria-label="Newsletter signup">
+      <input type="email" class="nl-input" placeholder="your@email.com" required aria-label="Email address" autocomplete="email" />
+      <button type="submit" class="nl-btn">Subscribe →</button>
+    </form>
+  </div>
+
+</aside>
