@@ -2,8 +2,8 @@ title: "Emad Beshai · Engineering"
 description: >-
   A technical blog on software architecture, system design, and engineering craft.
   Practical depth on backend, cloud, and distributed systems.
-url: "https://emadsaad.github.io"
-baseurl: "/emadbeshai365.github.io"
+url: "https://emadbeshai365.github.io"
+baseurl: ""
 
 author:
   name: "Emad Beshai"
